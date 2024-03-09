@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react"
 import { DictionnarySetter } from "./components/DictionnarySetter"
-import { Col, Input, List, Row } from "antd"
+import { Col, Input, List, Row, Switch } from "antd"
 import { PatternSetter } from "./components/PatternSetter"
 
 export function App() {
@@ -9,8 +9,9 @@ export function App() {
   let [patternErrorBag, setPatternErrorBag] = useState<Record<string, string>>(
     {},
   )
+  let [upper, setUpper] = useState(false)
   let extract = useMemo(
-    () => dictionnary.filter((word) => word.match(regex)),
+    () => dictionnary.filter((word) => word.toLocaleLowerCase().match(regex)),
     [dictionnary, regex],
   )
 
@@ -27,10 +28,12 @@ export function App() {
         setPatternErrorBag={setPatternErrorBag}
         setRegex={setRegex}
       />
+      <Switch value={upper} onChange={(checked) => setUpper(checked)} />
+      Uppercase
       <Row>
         {limitedExtract.map((word) => (
           <Col span={6} key={word}>
-            {word}
+            {upper ? word.toLocaleUpperCase() : word}
           </Col>
         ))}
         {extract.length > 60 ? (

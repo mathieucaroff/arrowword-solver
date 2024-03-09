@@ -23,6 +23,12 @@ export function PatternSetter(prop: PatternSetterProp) {
               let query = pattern
                 .replace(/[?*]/g, ".")
                 .replace(/\{\d+\}/g, ".$&")
+                .toLocaleLowerCase()
+                .replace(/[aäàáâ]/g, "[aäàáâ]")
+                .replace(/[eëèéê]/g, "[eëèéê]")
+                .replace(/[uüùúû]/g, "[uüùúû]")
+                .replace(/[iïìíî]/g, "[iïìíî]")
+                .replace(/[oöòóô]/g, "[oöòóô]")
               setRegex(new RegExp(`^${query}$`))
             } catch {
               hasCrashed = true
