@@ -18,7 +18,6 @@ export function PatternSetter(prop: PatternSetterProp) {
           onChange={(ev) => {
             let pattern = ev.currentTarget.value
             let error: undefined | string = undefined
-            let hasCrashed = false
             try {
               let query = pattern
                 .replace(/[?*]/g, ".")
@@ -31,7 +30,6 @@ export function PatternSetter(prop: PatternSetterProp) {
                 .replace(/[oöòóô]/g, "[oöòóô]")
               setRegex(new RegExp(`^${query}$`))
             } catch {
-              hasCrashed = true
               error = "Invalid pattern"
             }
             setPatternErrorBag({

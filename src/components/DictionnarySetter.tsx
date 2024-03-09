@@ -1,6 +1,23 @@
 import { Button, Input, Select, Upload } from "antd"
 import React, { Dispatch, SetStateAction, useState } from "react"
 
+const dictionnaryTextGetterSet: Record<string, () => Promise<string>> = {
+  "english (10 k-words)": () =>
+    import("bundle-text:../../asset/dictionnary/english.list.txt"),
+  "espagñol (1 k-palabras)": () =>
+    import("bundle-text:../../asset/dictionnary/espagnol.list.txt"),
+  "français (336 k-mots)": () =>
+    import("bundle-text:../../asset/dictionnary/francais.336K.list.txt"),
+  "deutsche (10 k-worter)": () =>
+    import("bundle-text:../../asset/dictionnary/deutsche.list.txt"),
+  "français scrabble 2012 (386 k-mots)": () =>
+    import(
+      "bundle-text:../../asset/dictionnary/francais.scrabble2012.386K.list.txt"
+    ),
+  "français réduit (21 k-mots)": () =>
+    import("bundle-text:../../asset/dictionnary/francais.21K.list.txt"),
+}
+
 export interface DictionnarySetterProp {
   dictionnary: string[]
   setDictionnary: Dispatch<SetStateAction<string[]>>
@@ -16,16 +33,7 @@ export function DictionnarySetter(prop: DictionnarySetterProp) {
     setDictionnaryLanguage(value)
     let name = value.toLowerCase()
     const dictionnaryTextGetter =
-      {
-        english: () =>
-          import("bundle-text:../../asset/dictionnary/english.list.txt"),
-        espagñol: () =>
-          import("bundle-text:../../asset/dictionnary/espagnol.list.txt"),
-        français: () =>
-          import("bundle-text:../../asset/dictionnary/francais.list.txt"),
-        deutsche: () =>
-          import("bundle-text:../../asset/dictionnary/deutsche.list.txt"),
-      }[name] ?? (async () => dictionnary.join("\n"))
+      dictionnaryTextGetterSet[name] ?? (async () => dictionnary.join("\n"))
 
     setLoading(true)
     let dictionnaryText = await dictionnaryTextGetter()
@@ -43,13 +51,16 @@ export function DictionnarySetter(prop: DictionnarySetterProp) {
           onChange={handleDictionnaryLanguageChange}
           value={dictionnaryLanguage}
           loading={loading}
+          disabled={loading}
           style={{ width: "50%" }}
           options={[
             { value: "other" },
-            { value: "English" },
-            { value: "Espagñol" },
-            { value: "Français" },
-            { value: "Deutsche" },
+            { value: "English (10 K-words)" },
+            { value: "Espagñol (1 K-palabras)" },
+            { value: "Français (336 K-mots)" },
+            { value: "Deutsche (10 K-Worter)" },
+            { value: "Français réduit (21 K-mots)" },
+            { value: "Français scrabble 2012 (386 K-mots)" },
           ]}
         />
         <Upload
