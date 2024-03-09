@@ -1,0 +1,78 @@
+@import "./font.css";
+
+html {
+    font-family: RobotoFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+}
+
+h1 {
+    font-family: PrismaFont;
+    font-size: 55px;
+    font-weight: initial;
+    margin: 0;
+}
+
+/* dark theme */
+html {
+    --foreground-color: #000;
+    --background-color: #FFF;
+}
+html.dark {
+    --foreground-color: #FFF;
+    --background-color: #111;
+}
+
+.keyboard__key {
+    width: 18px;
+    border: solid 1px;
+    text-align: center;
+}
+
+.keyboard__key--pressed {
+    background-color: #d0d0d0;
+}
+
+.keyboard__miniText {
+    font-size: 8px;
+    padding-bottom: 10px;
+}
+
+.keyboard__offset--Basic--0 { width: 26px; }
+.keyboard__offset--Basic--1 { width: 34px; }
+.keyboard__offset--Basic--2 { width: 20px; }
+
+.keyboard__offset--TypeMatrix--0 { width: 20px; max-width: 20px; }
+.keyboard__offset--TypeMatrix--1 { width: 20px; max-width: 20px; border-bottom: 0; }
+.keyboard__offset--TypeMatrix--2 { width: 20px; max-width: 20px; border-top: 0; }
+
+.keyboard__centralKey--TypeMatrix--0 { width: 20px; max-width: 20px; }
+.keyboard__centralKey--TypeMatrix--1 { width: 20px; max-width: 20px; border-bottom: 0; }
+.keyboard__centralKey--TypeMatrix--2 { width: 20px; max-width: 20px; border-top: 0; }
+
+.typing {
+    font-size: 150%;
+    white-space: pre-wrap;
+}
+.typing .label {
+    font-size: 60%;
+    margin-bottom: -5px;
+}
+
+.red {
+    color: #C00;
+}
+
+.blinkText {
+    animation-name: blinkText;
+    width:280px;
+    animation-duration:1s;
+    animation-iteration-count: Infinite;
+}
+
+@keyframes blinkText {
+    25% { color: black; }
+    45% { color: rgba(0, 0, 0, 0); }
+    55% { color: rgba(0, 0, 0, 0); }
+    75% { color: black; }
+}

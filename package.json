@@ -1,0 +1,31 @@
+{
+  "name": "crossword",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/mathieucaroff/crossword"
+  },
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "mcabuild": "parcel build src/index.html --public-url crosesword.d",
+    "check-knip": "knip --dependencies --exports --include files --reporter ./knip-reporter.ts",
+    "prettier": "prettier"
+  },
+  "dependencies": {
+    "antd": "^5.15.1",
+    "classnames": "^2.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "2.10.3",
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.18",
+    "knip": "^3.8.4",
+    "parcel": "^2.1.0",
+    "prettier": "^3.2.5",
+    "process": "^0.11.10",
+    "typescript": "^4.7.4"
+  }
+}
