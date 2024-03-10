@@ -1,5 +1,6 @@
 import { Button, Input, Select, Upload } from "antd"
 import React, { Dispatch, SetStateAction, useState } from "react"
+import { useTranslation } from "react-i18next"
 
 const dictionnaryTextGetterSet: Record<string, () => Promise<string>> = {
   "english (10 k-words)": () =>
@@ -25,6 +26,7 @@ export interface DictionnarySetterProp {
 
 export function DictionnarySetter(prop: DictionnarySetterProp) {
   let { dictionnary, setDictionnary } = prop
+  let { t } = useTranslation()
 
   let [loading, setLoading] = useState(false)
   let [dictionnaryLanguage, setDictionnaryLanguage] = useState("other")
@@ -45,7 +47,7 @@ export function DictionnarySetter(prop: DictionnarySetterProp) {
 
   return (
     <>
-      <div>Word list</div>
+      <div>{t("Word list")}</div>
       <div>
         <Select<string>
           onChange={handleDictionnaryLanguageChange}
@@ -54,7 +56,7 @@ export function DictionnarySetter(prop: DictionnarySetterProp) {
           disabled={loading}
           style={{ width: "50%" }}
           options={[
-            { value: "other" },
+            { value: "other", label: t("other") },
             { value: "English (10 K-words)" },
             { value: "Espagñol (1 K-palabras)" },
             { value: "Français (336 K-mots)" },
@@ -75,7 +77,7 @@ export function DictionnarySetter(prop: DictionnarySetterProp) {
             return false
           }}
         >
-          <Button>Select a file</Button>
+          <Button>{t("Select a file")}</Button>
         </Upload>
       </div>
       <div>

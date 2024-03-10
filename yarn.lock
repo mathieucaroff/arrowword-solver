@@ -1954,6 +1954,13 @@ hosted-git-info@^7.0.0:
   dependencies:
     lru-cache "^10.0.1"
 
+html-parse-stringify@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz#dfc1017347ce9f77c8141a507f233040c59c55d2"
+  integrity sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==
+  dependencies:
+    void-elements "3.1.0"
+
 htmlnano@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/htmlnano/-/htmlnano-2.0.2.tgz#3e3170941e2446a86211196d740272ebca78f878"
@@ -1972,6 +1979,13 @@ htmlparser2@^7.1.1:
     domhandler "^4.2.2"
     domutils "^2.8.0"
     entities "^3.0.1"
+
+i18next@^23.10.1:
+  version "23.10.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.10.1.tgz#217ce93b75edbe559ac42be00a20566b53937df6"
+  integrity sha512-NDiIzFbcs3O9PXpfhkjyf7WdqFn5Vq6mhzhtkXzj51aOcNuPNcTwuYNuXCpHsanZGHlHKL35G7huoFeVic1hng==
+  dependencies:
+    "@babel/runtime" "^7.23.2"
 
 identity-function@^1.0.0:
   version "1.0.0"
@@ -3084,6 +3098,14 @@ react-error-overlay@6.0.9:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.9.tgz#3c743010c9359608c375ecd6bc76f35d93995b0a"
   integrity sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
 
+react-i18next@^14.1.0:
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-14.1.0.tgz#44da74fbffd416f5d0c5307ef31735cf10cc91d9"
+  integrity sha512-3KwX6LHpbvGQ+sBEntjV4sYW3Zovjjl3fpoHbUwSgFHf0uRBcbeCBLR5al6ikncI5+W0EFb71QXZmfop+J6NrQ==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
+    html-parse-stringify "^3.0.1"
+
 react-is@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
@@ -3534,6 +3556,11 @@ vlq@^0.2.1:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
   integrity sha512-DRibZL6DsNhIgYQ+wNdWDL2SL3bKPlVrRiBqV5yuMm++op8W4kGFtaQfCs4KEJn0wBZcHVHJ3eoywX8983k1ow==
+
+void-elements@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-3.1.0.tgz#614f7fbf8d801f0bb5f0661f5b2f5785750e4f09"
+  integrity sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==
 
 wcwidth@^1.0.1:
   version "1.0.1"

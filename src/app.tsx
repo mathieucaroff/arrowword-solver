@@ -1,10 +1,13 @@
 import React, { ReactNode, useMemo, useState } from "react"
 import { DictionnarySetter } from "./components/DictionnarySetter"
-import { Col, Input, List, Row, Switch } from "antd"
+import { Switch } from "antd"
 import { PatternSetter } from "./components/PatternSetter"
 import { VerticalColumnGrid } from "./components/VerticalColumnGrid"
+import { useTranslation } from "react-i18next"
 
 export function App() {
+  let { t } = useTranslation()
+
   let [dictionnary, setDictionnary] = useState<string[]>(() => [])
   let [regex, setRegex] = useState(/^$/)
   let [patternErrorBag, setPatternErrorBag] = useState<Record<string, string>>(
@@ -25,6 +28,8 @@ export function App() {
 
   return (
     <>
+      <h1>{t("Crossword")}</h1>
+      <p>{t("Help solving arrow crosswords.")}</p>
       <DictionnarySetter
         dictionnary={dictionnary}
         setDictionnary={setDictionnary}
@@ -35,7 +40,7 @@ export function App() {
         setRegex={setRegex}
       />
       <Switch value={upper} onChange={(checked) => setUpper(checked)} />
-      Uppercase
+      {t("Uppercase")}
       <VerticalColumnGrid
         columnCount={4}
         content={gridContent}
@@ -44,8 +49,10 @@ export function App() {
             <div className="centerText">
               <div>...</div>
               <em>
-                (Showing the {limitedExtract.length} first results off of a
-                total of {extract.length})
+                {t(
+                  "(Showing the {{count}} first results off of a total of {{total}})",
+                  { count: limitedExtract.length, total: extract.length },
+                )}
               </em>
             </div>
           ) : null

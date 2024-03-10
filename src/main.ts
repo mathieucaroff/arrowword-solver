@@ -7,14 +7,12 @@ import { createStyleSheet } from "./lib/styleSheet"
 import { ensureSpacelessURL, resolveSearch } from "./lib/urlParameter"
 
 import { App } from "./app"
-import { TypistConfig } from "./type"
+import { CrosswordConfig } from "./type"
 import "./style.css"
+import "./i18n"
 
 function getConfig(location: Location) {
-  let config = resolveSearch<TypistConfig>(location, {
-    dark: () => false,
-    keyboardColor: () => "",
-  })
+  let config = resolveSearch<CrosswordConfig>(location, { dark: () => false })
   return config
 }
 
@@ -24,7 +22,7 @@ async function main() {
   let cornerDiv = document.createElement("div")
   cornerDiv.innerHTML = githubCornerHTML(
     packageInfo.repository.url,
-    packageInfo.version
+    packageInfo.version,
   )
   document.body.appendChild(cornerDiv)
 

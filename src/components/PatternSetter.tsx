@@ -1,5 +1,6 @@
 import { Input } from "antd"
-import React, { Dispatch, SetStateAction, useState } from "react"
+import React, { Dispatch, SetStateAction } from "react"
+import { useTranslation } from "react-i18next"
 
 export interface PatternSetterProp {
   patternErrorBag: Record<string, string>
@@ -9,10 +10,11 @@ export interface PatternSetterProp {
 
 export function PatternSetter(prop: PatternSetterProp) {
   let { patternErrorBag, setPatternErrorBag, setRegex } = prop
+  let { t } = useTranslation()
 
   return (
     <>
-      <div>Pattern</div>
+      <div>{t("Pattern")}</div>
       <div>
         <Input
           onChange={(ev) => {
