@@ -7,12 +7,14 @@ import { createStyleSheet } from "./lib/styleSheet"
 import { ensureSpacelessURL, resolveSearch } from "./lib/urlParameter"
 
 import { App } from "./app"
-import { CrosswordConfig } from "./type"
+import { ArrowwordSolverConfig } from "./type"
 import "./style.css"
 import "./i18n"
 
 function getConfig(location: Location) {
-  let config = resolveSearch<CrosswordConfig>(location, { dark: () => false })
+  let config = resolveSearch<ArrowwordSolverConfig>(location, {
+    dark: () => false,
+  })
   return config
 }
 

@@ -1,9 +1,9 @@
 {
-  "name": "crossword",
+  "name": "arrowwordsolver",
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/mathieucaroff/crossword"
+    "url": "https://github.com/mathieucaroff/arrowwordsolver"
   },
   "scripts": {
     "dev": "parcel src/index.html",

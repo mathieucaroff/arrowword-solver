@@ -10,9 +10,9 @@ const resources = {
   },
   fr: {
     translation: {
-      "Crossword": "Mots-croisés",
-      "Crosswords": "Mots-croisés",
-      "Help solving arrow crosswords.": "Aide à résoudre les mots croisés",
+      "Arrowword": "Mots-croisés",
+      "Arrowwords": "Mots-croisés",
+      "Help solving arrowword puzzles.": "Aide à résoudre les mots croisés",
       "Word list": "Liste de mots",
       "other": "autre",
       "Select a file": "Selectionner un fichier",

@@ -28,8 +28,8 @@ export function App() {
 
   return (
     <>
-      <h1>{t("Crossword")}</h1>
-      <p>{t("Help solving arrow crosswords.")}</p>
+      <h1>{t("Arrowword solver")}</h1>
+      <p>{t("Help solving arrowword puzzles.")}</p>
       <DictionnarySetter
         dictionnary={dictionnary}
         setDictionnary={setDictionnary}

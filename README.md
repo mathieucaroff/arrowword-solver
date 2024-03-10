@@ -1,3 +1,3 @@
-# [Crossword Solver](https://crosswordsolver.vercel.app/)
+# [Arrowword Solver](https://arrowwordsolver.vercel.app/)
 
-A tool to help find words in crosswords grids.
+A tool to help find words in arrowwords grids.
