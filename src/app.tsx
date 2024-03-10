@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from "react"
+import React, { ReactNode, useMemo, useState } from "react"
 import { DictionnarySetter } from "./components/DictionnarySetter"
 import { Col, Input, List, Row, Switch } from "antd"
 import { PatternSetter } from "./components/PatternSetter"
+import { VerticalColumnGrid } from "./components/VerticalColumnGrid"
 
 export function App() {
   let [dictionnary, setDictionnary] = useState<string[]>(() => [])
@@ -17,6 +18,11 @@ export function App() {
 
   let limitedExtract = extract.slice(0, 60)
 
+  let gridContent = limitedExtract.map((word) => ({
+    key: word,
+    element: upper ? word.toLocaleUpperCase() : (word as ReactNode),
+  }))
+
   return (
     <>
       <DictionnarySetter
@@ -30,22 +36,21 @@ export function App() {
       />
       <Switch value={upper} onChange={(checked) => setUpper(checked)} />
       Uppercase
-      <Row>
-        {limitedExtract.map((word) => (
-          <Col span={6} key={word}>
-            {upper ? word.toLocaleUpperCase() : word}
-          </Col>
-        ))}
-        {extract.length > 60 ? (
-          <Col span={24} style={{ textAlign: "center" }}>
-            <div>...</div>
-            <em>
-              (Showing the {limitedExtract.length} first results off of a total
-              of {extract.length})
-            </em>
-          </Col>
-        ) : null}
-      </Row>
+      <VerticalColumnGrid
+        columnCount={4}
+        content={gridContent}
+        footer={
+          extract.length > 60 ? (
+            <div className="centerText">
+              <div>...</div>
+              <em>
+                (Showing the {limitedExtract.length} first results off of a
+                total of {extract.length})
+              </em>
+            </div>
+          ) : null
+        }
+      />
     </>
   )
 }

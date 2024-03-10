@@ -63,16 +63,16 @@ html.dark {
     color: #C00;
 }
 
-.blinkText {
-    animation-name: blinkText;
-    width:280px;
-    animation-duration:1s;
-    animation-iteration-count: Infinite;
+.center {
+    margin: 0 auto;
 }
 
-@keyframes blinkText {
-    25% { color: black; }
-    45% { color: rgba(0, 0, 0, 0); }
-    55% { color: rgba(0, 0, 0, 0); }
-    75% { color: black; }
+.centerText {
+    text-align: center;
+}
+
+/* VerticalColmunAlignment */
+.vertical-column-grid {
+    flex-flow: column wrap;
+    line-height: 3ex;
 }
