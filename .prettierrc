@@ -1,4 +1,8 @@
 {
     "semi": false,
-    "quoteProps": "consistent"
+    "quoteProps": "consistent",
+
+    "importOrder": ["^[^.]", "^\\."],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
 }
