@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useState } from "react"
+import React, { ReactNode, useEffect, useMemo, useState } from "react"
 import { DictionnarySetter } from "./components/DictionnarySetter"
 import { Switch } from "antd"
 import { PatternSetter } from "./components/PatternSetter"
@@ -37,6 +37,10 @@ export function App(props: AppProps) {
     key: word,
     element: upper ? word.toLocaleUpperCase() : (word as ReactNode),
   }))
+
+  useEffect(() => {
+    document.title = t("Arrowword solver")
+  }, [config.language])
 
   return (
     <>
