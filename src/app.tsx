@@ -4,16 +4,28 @@ import { Switch } from "antd"
 import { PatternSetter } from "./components/PatternSetter"
 import { VerticalColumnGrid } from "./components/VerticalColumnGrid"
 import { useTranslation } from "react-i18next"
+import { ArrowwordSolverConfig } from "./type"
 
-export function App() {
+export interface AppProps {
+  config: ArrowwordSolverConfig
+  styleSheet: CSSStyleSheet
+}
+
+export function App(props: AppProps) {
+  let { config } = props
+
+  // misc hooks
   let { t } = useTranslation()
 
+  // state
   let [dictionnary, setDictionnary] = useState<string[]>(() => [])
   let [regex, setRegex] = useState(/^$/)
   let [patternErrorBag, setPatternErrorBag] = useState<Record<string, string>>(
     {},
   )
   let [upper, setUpper] = useState(false)
+
+  // computed values
   let extract = useMemo(
     () => dictionnary.filter((word) => word.toLocaleLowerCase().match(regex)),
     [dictionnary, regex],
@@ -31,6 +43,7 @@ export function App() {
       <h1>{t("Arrowword solver")}</h1>
       <p>{t("Help solving arrowword puzzles.")}</p>
       <DictionnarySetter
+        appLanguage={config.language}
         dictionnary={dictionnary}
         setDictionnary={setDictionnary}
       />

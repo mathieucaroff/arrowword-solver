@@ -4,19 +4,11 @@ import { createRoot } from "react-dom/client"
 import * as packageInfo from "../package.json"
 import { githubCornerHTML } from "./lib/githubCorner"
 import { createStyleSheet } from "./lib/styleSheet"
-import { ensureSpacelessURL, resolveSearch } from "./lib/urlParameter"
-
+import { ensureSpacelessURL } from "./lib/urlParameter"
 import { App } from "./app"
-import { ArrowwordSolverConfig } from "./type"
+import { getConfig } from "./config"
+import { i18n } from "./i18n"
 import "./style.css"
-import "./i18n"
-
-function getConfig(location: Location) {
-  let config = resolveSearch<ArrowwordSolverConfig>(location, {
-    dark: () => false,
-  })
-  return config
-}
 
 async function main() {
   ensureSpacelessURL(location)
@@ -33,8 +25,20 @@ async function main() {
 
   let styleSheet = createStyleSheet(document)
   styleSheet.insertRule(":root {}")
+
   let root = createRoot(document.getElementById("root")!)
-  root.render(createElement(App, { config, styleSheet }))
+  const renderApp = () => {
+    root.render(createElement(App, { config, styleSheet }))
+  }
+
+  i18n.changeLanguage(config.language || "en")
+  window.addEventListener("hashchange", () => {
+    console.log("hashchange")
+    config = getConfig(location)
+    i18n.changeLanguage(config.language || "en")
+    renderApp()
+  })
+  renderApp()
 }
 
 main()
